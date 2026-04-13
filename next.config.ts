@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Ensure static files are properly served
+  staticPageGenerationTimeout: 60,
+  
+  // Configure image optimization
   images: {
     localPatterns: [
       {
@@ -20,6 +24,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  
+  // Ensure public folder assets are not minified/compressed in a way that breaks them
+  compress: true,
+  
+  // PoweredBy header for security
+  poweredByHeader: false,
 };
 
 export default nextConfig;

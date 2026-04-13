@@ -1,5 +1,13 @@
-# Explicitly include critical static files
-# Note: These will be served from the public folder
+﻿# Exclude development and build cache
+.git
+.gitignore
+node_modules
+.env.local
+.env.*.local
+.turbo
 
-# Exclude build/cache directories
-.next
+# Exclude Next.js cache, but public assets should be deployed
+.next/dev
+.next/cache
+
+# Important: public folder with audio must be included in deployment

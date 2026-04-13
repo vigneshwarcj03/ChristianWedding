@@ -47,7 +47,9 @@ export default function AudioToggle({ startPlaying }: AudioToggleProps) {
 
   const handleError = (e: React.SyntheticEvent<HTMLAudioElement, Event>) => {
     const error = e.currentTarget.error;
-    const errorMsg = error ? `Audio Error Code: ${error.code}` : "Unknown audio error";
+    const errorMsg = error
+      ? `Audio Error Code: ${error.code}`
+      : "Unknown audio error";
     console.error("Audio error:", errorMsg);
     setAudioError(errorMsg);
     setAudioLoaded(false);
