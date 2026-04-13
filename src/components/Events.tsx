@@ -11,19 +11,19 @@ const eventDetails = [
         name: "CHURCH WEDDING CEREMONY",
         time: "5:00 PM",
         venue: "Church",
-        image: "/1_CHURCH.jfif",
+        image: "/CCHURCH.jfif",
       },
       {
         name: "RECEPTION AT CSI AUDITORIUM",
         time: "7:00 PM",
         venue: "CSI Auditorium",
-        image: "/2_RECEPTION.jfif",
+        image: "/RRECEPTION.jfif",
       },
       {
         name: "LIVE CHRISTIAN MUSIC BAND",
         description:
           "Experience joyful and spirit-filled live Christian music celebrating love and unity.",
-        image: "/3_BAND.jfif",
+        image: "/BBAND.jfif",
       },
     ],
   },
