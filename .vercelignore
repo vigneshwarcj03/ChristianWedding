@@ -1,0 +1,5 @@
+# Explicitly include critical static files
+# Note: These will be served from the public folder
+
+# Exclude build/cache directories
+.next

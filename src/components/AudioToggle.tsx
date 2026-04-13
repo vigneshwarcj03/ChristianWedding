@@ -11,12 +11,14 @@ interface AudioToggleProps {
 export default function AudioToggle({ startPlaying }: AudioToggleProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioLoaded, setAudioLoaded] = useState(false);
+  const [audioError, setAudioError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (startPlaying && audioRef.current && audioLoaded) {
       audioRef.current.play().catch((err) => {
         console.error("Failed to play audio:", err);
+        setAudioError(err.message);
       });
       setIsPlaying(true);
     }
@@ -30,6 +32,7 @@ export default function AudioToggle({ startPlaying }: AudioToggleProps) {
       } else {
         audioRef.current.play().catch((err) => {
           console.error("Failed to play audio:", err);
+          setAudioError(err.message);
         });
         setIsPlaying(true);
       }
@@ -38,6 +41,16 @@ export default function AudioToggle({ startPlaying }: AudioToggleProps) {
 
   const handleCanPlay = () => {
     setAudioLoaded(true);
+    setAudioError(null);
+    console.log("Audio file loaded successfully");
+  };
+
+  const handleError = (e: React.SyntheticEvent<HTMLAudioElement, Event>) => {
+    const error = e.currentTarget.error;
+    const errorMsg = error ? `Audio Error Code: ${error.code}` : "Unknown audio error";
+    console.error("Audio error:", errorMsg);
+    setAudioError(errorMsg);
+    setAudioLoaded(false);
   };
 
   return (
@@ -70,19 +83,20 @@ export default function AudioToggle({ startPlaying }: AudioToggleProps) {
           )}
         </AnimatePresence>
       </motion.button>
-      
+
       {/* Audio Element (Hidden) */}
+      {/* Primary source: static file | Fallback: API route */}
       <audio
         ref={audioRef}
         loop
         preload="metadata"
         crossOrigin="anonymous"
         onCanPlay={handleCanPlay}
-        onError={(e) => {
-          console.error("Audio error:", e);
-        }}
+        onError={handleError}
       >
         <source src="/wedding-theme.mp3" type="audio/mpeg" />
+        <source src="/api/audio/wedding-theme" type="audio/mpeg" />
+        Your browser does not support the audio element.
       </audio>
     </div>
   );
