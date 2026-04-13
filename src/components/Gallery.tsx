@@ -14,44 +14,44 @@ type GalleryImage = {
 const allImages: Record<GalleryCategory, GalleryImage[]> = {
   Engagement: [
     {
-      src: "/Eng_1.jfif",
+      src: "/Eng_1.png",
       alt: "The Beginning",
     },
     {
-      src: "/Eng_2.jfif",
+      src: "/Eng_2.png",
       alt: "Eternal Vows",
     },
     {
-      src: "/Eng_3.jfif",
+      src: "/Eng_3.png",
       alt: "Soft Details",
     },
   ],
   "Pre-Wedding": [
     {
-      src: "/Pre_1.jfif",
+      src: "/Pre_1.png",
       alt: "Groom's Style",
     },
     {
-      src: "/Pre_2.jfif",
+      src: "/Pre_2.png",
       alt: "Walking Together",
     },
     {
-      src: "/Pre_3.jfif",
+      src: "/Pre_3.png",
       alt: "Soft Details",
     },
   ],
 
   Family: [
     {
-      src: "/Fam_1.jfif",
+      src: "/Fam_1.png",
       alt: "Eternal Vows",
     },
     {
-      src: "/Fam_2.jfif",
+      src: "/Fam_2.png",
       alt: "Walking Together",
     },
     {
-      src: "/Fam_3.jfif",
+      src: "/Fam_3.png",
       alt: "Groom's Style",
     },
   ],

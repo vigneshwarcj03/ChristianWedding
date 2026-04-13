@@ -8,25 +8,25 @@ const stories = [
     title: "Our First Meeting",
     caption:
       "A smile at a family function, the start of a beautiful journey together.",
-    image: "/story111.jfif?v=1",
+    image: "/story111.png?v=1",
     year: "2020",
   },
   {
     title: "Growing Closer",
     caption: "Shared dreams and laughter made our bond stronger every day.",
-    image: "/story222.jfif",
+    image: "/story222.png",
     year: "2022",
   },
   {
     title: "The Proposal",
     caption: "With blessings from family, he asked for her hand in marriage.",
-    image: "/story333.jfif?v=1",
+    image: "/story333.png?v=1",
     year: "2024",
   },
   {
     title: "Joining Hands",
     caption: "With joyful hearts, we celebrate our wedding and new beginnings.",
-    image: "/story444.jfif",
+    image: "/story444.png",
     year: "TODAY",
   },
 ];
