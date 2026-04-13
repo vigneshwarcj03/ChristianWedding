@@ -1,0 +1,1 @@
+# Cloud Images Visibility Fix\n\n- [x] Create TODO.md\n- [ ] Edit Hero.tsx: Switch clouds to Next/Image, z-[15], remove red borders, responsive pos\n- [ ] Clear .next cache & restart dev server\n- [ ] Test & verify visibility\n- [ ] Close task
