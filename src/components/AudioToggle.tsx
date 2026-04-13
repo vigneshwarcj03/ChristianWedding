@@ -10,24 +10,34 @@ interface AudioToggleProps {
 
 export default function AudioToggle({ startPlaying }: AudioToggleProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioLoaded, setAudioLoaded] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (startPlaying && audioRef.current) {
-      audioRef.current.play();
+    if (startPlaying && audioRef.current && audioLoaded) {
+      audioRef.current.play().catch((err) => {
+        console.error("Failed to play audio:", err);
+      });
       setIsPlaying(true);
     }
-  }, [startPlaying]);
+  }, [startPlaying, audioLoaded]);
 
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch((err) => {
+          console.error("Failed to play audio:", err);
+        });
+        setIsPlaying(true);
       }
-      setIsPlaying(!isPlaying);
     }
+  };
+
+  const handleCanPlay = () => {
+    setAudioLoaded(true);
   };
 
   return (
@@ -65,8 +75,15 @@ export default function AudioToggle({ startPlaying }: AudioToggleProps) {
       <audio
         ref={audioRef}
         loop
-        src="/wedding-theme.mp3"
-      />
+        preload="metadata"
+        crossOrigin="anonymous"
+        onCanPlay={handleCanPlay}
+        onError={(e) => {
+          console.error("Audio error:", e);
+        }}
+      >
+        <source src="/wedding-theme.mp3" type="audio/mpeg" />
+      </audio>
     </div>
   );
 }
